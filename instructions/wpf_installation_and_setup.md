@@ -14,7 +14,7 @@
 3. Клонируйте репозиторий приложения:
     ```sh
     git clone https://github.com/uoy314asi/VisionSortAI
-    cd VisionSortAI
+    cd VisionSortAI/main
     ```
 
 4. Настройте виртуальное окружение Python:
