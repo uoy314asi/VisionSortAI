@@ -1,0 +1,57 @@
+﻿<Window x:Class="NeuroVisionDP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NeuroVisionDP"
+        xmlns:viewModel="clr-namespace:NeuroVisionDP.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        WindowStyle="None"
+        ResizeMode="CanResizeWithGrip"
+        MinHeight="800"
+        MinWidth="920"
+        Background="#272537"
+        AllowsTransparency="True"
+        PreviewMouseDown="MainWindow_PreviewMouseDown">
+
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+
+    <Grid>
+        <Border Background="#272537" CornerRadius="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Custom Title Bar -->
+                <Border x:Name="MyBorder" Background="Transparent" Grid.ColumnSpan="2" MouseLeftButtonDown="MainWindow_PreviewMouseDown">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Command="{Binding MinimizeCommand}" Content="_" FontSize="18" Width="30" Height="30" Margin="2" Style="{StaticResource TitleBarButtonStyle}"/>
+                        <Button Command="{Binding MaximizeCommand}" Content="[]" FontSize="14" Width="30" Height="30" Margin="2" Style="{StaticResource TitleBarButtonStyle}"/>
+                        <Button Command="{Binding CloseCommand}" Content="X" FontSize="18" Width="30" Height="30" Margin="2" Style="{StaticResource TitleBarButtonStyle}"/>
+                    </StackPanel>
+                </Border>
+
+                <TextBlock Text="NeuroVisionDP" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="White" FontSize="22" Margin="20, 30, 0, 0" FontFamily="Segoe UI" Grid.Row="0"/>
+
+                <StackPanel Grid.Row="1" Background="#1B1B1B" Margin="0,0,5,0">
+                    <RadioButton Content="Галерея" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}" IsChecked="True" Command="{Binding HomeViewCommand}"/>
+                    <RadioButton Content="Загрузить изображение" Height="50" Foreground="White" FontSize="12" Style="{StaticResource MenuButtonTheme}" Command="{Binding DiscoveryViewCommand}"/>
+                    <RadioButton Content="Настройки" Height="50" Foreground="White" FontSize="14" Style="{StaticResource MenuButtonTheme}" Command="{Binding SettingsViewCommand}"/>
+                </StackPanel>
+
+                <TextBox Width="250" Height="40" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="20,10,0,0" Grid.Column="1" Style="{StaticResource ModernTextbox}" Grid.Row="0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" Content="{Binding CurrentView}"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

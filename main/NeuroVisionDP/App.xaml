@@ -1,0 +1,30 @@
+﻿<Application x:Class="NeuroVisionDP.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:core="clr-namespace:NeuroVisionDP.Core"
+             xmlns:viewModel="clr-namespace:NeuroVisionDP.MVVM.ViewModel"
+             xmlns:view="clr-namespace:NeuroVisionDP.MVVM.View"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TextboxTheme.xaml"/>
+                <ResourceDictionary Source="Theme/TitleBarButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <core:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            <viewModel:MainViewModel x:Key="MainViewModel"/>
+            <viewModel:HomeViewModel x:Key="HomeViewModel"/>
+            <viewModel:DiscoveryViewModel x:Key="DiscoveryViewModel" />
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:DiscoveryViewModel}">
+                <view:DiscoveryView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
+                <view:SettingsView/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,13 @@
+﻿<Window x:Class="NeuroVisionDP.MVVM.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NeuroVisionDP.MVVM.View"
+        mc:Ignorable="d"
+        Title="Image Uploader" Height="200" Width="400">
+    <Grid>
+        <Button Name="UploadButton" Content="Upload Image" HorizontalAlignment="Center" VerticalAlignment="Center" Click="UploadButton_Click"/>
+        <TextBlock Name="ResultTextBlock" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"/>
+    </Grid>
+</Window>
