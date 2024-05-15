@@ -14,8 +14,8 @@
 
 3. Клонируйте репозиторий приложения:
     ```sh
-    git clone https://github.com/your-repo/NeuroVisionDP.git
-    cd NeuroVisionDP
+    git clone https://github.com/uoy314asi/VisionSortAI
+    cd VisionSortAI
     ```
 
 4. Настройте виртуальное окружение Python:
