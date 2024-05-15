@@ -10,7 +10,6 @@
     - Перейдите на официальный сайт Visual Studio и загрузите последнюю версию Visual Studio Community, Professional или Enterprise.
     - Запустите установочный файл и выберите необходимые компоненты для разработки WPF-приложений:
         - .NET desktop development
-        - Desktop development with C++
 
 3. Клонируйте репозиторий приложения:
     ```sh
